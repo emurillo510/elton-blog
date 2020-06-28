@@ -48,11 +48,43 @@ class LinkedList
 end
 ```
 
-
-
 # How to traverse a linkedlist?
 
+There are several ways to traverse a LinkedList. Iteratively and Recursively.
+
+## Iteratively
+
+``` ruby
+
+def traverse(head)
+
+  cur = head
+  while cur
+    p "process node: #{cur.val}"
+    cur = cur.next
+  end
+end
+
+```
+
+## Recursively
+
+``` ruby
+def traverse(head)
+  if head == nil
+    return nil
+  end
+  p "head.val: #{head.val}"
+  traverse(head.next)
+end
+```
+
 # Recursive vs Iterative
+
+In the iterative version we keep a cursor node and assign that to head.
+To traverse we assign the cursor node to the next node. We terminate when cur is nil.
+
+In the recursive version we call traverse on the next node. We terminate when the next node is nil.
 
 # Reversing Linkedlist
 
