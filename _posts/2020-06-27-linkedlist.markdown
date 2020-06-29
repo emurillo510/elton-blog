@@ -86,10 +86,76 @@ To traverse we assign the cursor node to the next node. We terminate when cur is
 
 In the recursive version we call traverse on the next node. We terminate when the next node is nil.
 
-# Reversing Linkedlist
-
 # Linkedlist techniques
 
-- Building list using pointers
+## Reverse LinkedList
+
+This is a good technique to understand and get comfortable with manipulating the pointers of a LinkedList
+
+``` ruby
+def reverse(head)
+
+  next_node = nil
+  cur = head
+  prev = nil
+
+  while cur
+    next_node = cur.next
+    cur.next = prev
+    prev = cur
+    cur = next_node
+  end
+
+  head = prev
+
+  return head
+end
+```
+
+## Building list using pointers
+
+```ruby
+
+def append(node)
+
+tail = head
+tail.next = node
+tail = node
+
+```
 
 # How Linkedlist relates to Tree
+
+LinkedList are the underpinning to tree structures based on LinkedList.
+
+It is important to know you there are techniques you can use to traverse a tree similar to linkedlist. 
+
+For example,
+Instead of a next in LinkedList. You have a left and right node in a Tree. You can traverse each direction iteratively or recursively.
+
+By combining stacks and queues, you are table to traverse a Tree or Graph (graph is a tree), by using the stack or queue as a mechanism that lines up which node to process next.
+
+
+```ruby
+
+class ListNode
+    attr_accessor :val, :next_node
+
+    def initialize(val)
+      @val = val
+      @next_node = nil
+    end
+end
+
+class TreeNode
+    attr_accessor :val, :left, :right
+
+    def initialize(val)
+      @val = val
+      @left = nil
+      @right = nil
+    end
+end
+
+
+```
